@@ -4,11 +4,19 @@
   "description": "",
   "dependencies": {
     "axios": "^0.17.1",
+    "cordova-plugin-mapbox": "^1.2.3",
     "css-loader": "*",
     "onsenui": "~2.7.0",
     "vue": "~2.5.0",
     "vue-loader": "11.0.0",
     "vue-onsenui": "~2.3.0",
     "vue-template-compiler": "~2.5.0"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-mapbox": {
+        "ACCESS_TOKEN": "pk.eyJ1IjoiYmVhcmRvIiwiYSI6ImNqY29ibWNkNTAwNnEzM25nc2hzZWs4dmkifQ.mTBnrsjmSre5NGz29LZAKg"
+      }
+    }
   }
 }
