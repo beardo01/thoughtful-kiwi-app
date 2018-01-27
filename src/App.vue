@@ -1,10 +1,5 @@
 <template>
   <v-ons-page>
-    <!-- Header -->
-    <v-ons-toolbar>
-      <div class="center">{{ $route.name }}</div>
-    </v-ons-toolbar>
-
     <!-- Navigation -->
     <v-ons-tabbar>
       <router-view slot="pages"></router-view>
@@ -13,7 +8,7 @@
         :label="tab.name"
         :active="$route.name === tab.name"
         :key="tab.name"
-        @click.prevent="$router.push(tab.name)"
+        @click="$router.push(tab.name)"
       ></v-ons-tab>
     </v-ons-tabbar>
 
