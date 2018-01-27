@@ -16,6 +16,7 @@
 <script>
   import homePage from 'Home';
   import explorePage from 'Explore';
+  import postPage from 'Post';
 
   export default {
     data() {
