@@ -1,28 +1,24 @@
 <template>
-  <v-ons-page>
-
-    <div>
-      <v-ons-card v-for="post in posts" :key="post.id">
-        <img :src="post.image" :alt="post.title" class="card-image">
-        <div class="card-read-time">
-            {{post.read_time}} min
-        </div>
-        <div class="card-tools">
-            <i class="ion-share"></i>
-        </div>
-        <div class="card-type">
-            {{post.business.type}}
-        </div>
-        <div class="card-title">
+  <div>
+    <v-ons-card v-for="post in posts" :key="post.id" @click.prevent="$router.push('/post/' + post.id)">
+      <img :src="post.image" :alt="post.title" class="card-image">
+      <div class="card-read-time">
+          {{post.read_time}} min
+      </div>
+      <div class="card-tools">
+          <i class="ion-share"></i>
+      </div>
+      <div class="card-type">
+          {{post.business.type}}
+      </div>
+      <div class="card-title">
           {{post.title}}
-        </div>
-        <div class="card-content">
+      </div>
+      <div class="card-content">
           <p>{{post.body}}</p>
-        </div>
-      </v-ons-card>
-    </div>
-
-  </v-ons-page>
+      </div>
+    </v-ons-card>
+  </div>
 </template>
 
 <script>

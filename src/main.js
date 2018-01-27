@@ -1,6 +1,7 @@
 import 'onsenui';
 import Vue from 'vue';
 import VueOnsen from 'vue-onsenui';
+import router from './router'
 
 // Onsen UI Styling and Icons
 require('onsenui/css-components-src/src/onsen-css-components.css');
@@ -12,6 +13,7 @@ Vue.use(VueOnsen);
 
 new Vue({
   el: '#app',
+  router,
   template: '<app></app>',
   components: { App }
 });

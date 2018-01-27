@@ -1,15 +1,22 @@
 <template>
   <v-ons-page>
+    <!-- Header -->
     <v-ons-toolbar>
-      <div class="center">{{ title }}</div>
+      <div class="center">{{ $route.name }}</div>
     </v-ons-toolbar>
 
-    <v-ons-tabbar position="auto"
-      :tabs="tabs"
-      :visible="true"
-      :index.sync="activeIndex"
-    >
+    <!-- Navigation -->
+    <v-ons-tabbar>
+      <router-view slot="pages"></router-view>
+      <v-ons-tab v-for="tab in tabs"
+        :icon="tab.icon"
+        :label="tab.name"
+        :active="$route.name === tab.name"
+        :key="tab.name"
+        @click.prevent="$router.push(tab.name)"
+      ></v-ons-tab>
     </v-ons-tabbar>
+
   </v-ons-page>
 </template>
 
@@ -21,18 +28,17 @@
   export default {
     data() {
       return {
-        activeIndex: 0,
         tabs: [
-	  {
-	    icon: this.md() ? null : 'ion-home',
-	    label: 'Home',
-	    page: homePage
-	  },
-	  {
-	    icon: this.md() ? null : 'ion-location',
-	    label: 'Explore',
-	    page: explorePage
-	  }
+          {
+            icon: this.md() ? null : 'ion-home',
+            name: 'Home',
+            page: homePage,
+          },
+          {
+            icon: this.md() ? null : 'ion-location',
+            name: 'Explore',
+            page: explorePage,
+          }
         ]
       };
     },
@@ -40,12 +46,6 @@
       md() {
         return this.$ons.platform.isAndroid();
       }
-    },
-    computed: {
-      title() {
-        return this.tabs[this.activeIndex].label;
-      }
-    },
-    components: { homePage, explorePage }
+    }
   }
 </script>

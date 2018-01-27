@@ -1,7 +1,7 @@
 <template>
-  <v-ons-page>
+  <div>
     <p style="text-align: center">
-      Some news here.
+      {{$route.params.id}}
     </p>
-  </v-ons-page>
+  </div>
 </template>
