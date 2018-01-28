@@ -30,26 +30,17 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { mapGetters } from 'vuex';
 
 export default {
-  data() {
-    return {
-      apiUrl: 'https://api.thoughtful.kiwi/',
-      posts: []
-    }
-  },
-  methods: {
-    getPosts() {
-      axios.get(this.apiUrl + 'post/')
-        .then(response => this.posts = response.data)
-    }
-  },
+  computed: mapGetters({
+      posts: 'posts'
+  }),
   created() {
-    this.getPosts();
+    this.$store.dispatch('setPosts')
   },
   updated() {
-    console.log(this.posts);
+
   }
   
 }
